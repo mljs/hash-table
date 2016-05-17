@@ -1,0 +1,45 @@
+{
+  "name": "ml-hash-table",
+  "version": "0.0.0",
+  "description": "Open addressing hash table",
+  "main": "dist/HashTable.js",
+  "jsnext:main": "src/HashTable.js",
+  "scripts": {
+    "test": "npm run build && mocha",
+    "build": "rollup -c"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mljs/hash-table.git"
+  },
+  "keywords": [
+    "open",
+    "addressing",
+    "closed",
+    "hashing",
+    "double",
+    "hash",
+    "table"
+  ],
+  "author": "Michaël Zasso",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mljs/hash-table/issues"
+  },
+  "homepage": "https://github.com/mljs/hash-table#readme",
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "rollup": "^0.26.3",
+    "rollup-plugin-commonjs": "^2.2.1",
+    "rollup-plugin-node-resolve": "^1.5.0",
+    "should": "^8.3.1"
+  },
+  "dependencies": {
+    "ml-binary-search": "^1.0.1",
+    "new-array": "^1.0.0"
+  }
+}
