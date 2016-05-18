@@ -1,6 +1,6 @@
 {
   "name": "ml-hash-table",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Open addressing hash table",
   "main": "dist/HashTable.js",
   "jsnext:main": "src/HashTable.js",
