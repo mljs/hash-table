@@ -2,14 +2,11 @@
   "name": "ml-hash-table",
   "version": "0.1.1",
   "description": "Open addressing hash table",
-  "main": "dist/HashTable.js",
-  "jsnext:main": "src/HashTable.js",
+  "main": "src/HashTable.js",
   "scripts": {
-    "test": "npm run build && mocha",
-    "build": "rollup -c"
+    "test": "mocha"
   },
   "files": [
-    "dist",
     "src"
   ],
   "repository": {
@@ -33,9 +30,6 @@
   "homepage": "https://github.com/mljs/hash-table#readme",
   "devDependencies": {
     "mocha": "^2.4.5",
-    "rollup": "^0.26.3",
-    "rollup-plugin-commonjs": "^2.2.1",
-    "rollup-plugin-node-resolve": "^1.5.0",
     "should": "^8.3.1"
   },
   "dependencies": {

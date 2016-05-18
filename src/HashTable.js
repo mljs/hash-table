@@ -1,5 +1,10 @@
-import {nextPrime, largestPrime} from './primeFinder';
-import newArray from 'new-array';
+'use strict';
+
+const newArray = require('new-array');
+
+const primeFinder = require('./primeFinder');
+const nextPrime = primeFinder.nextPrime;
+const largestPrime = primeFinder.largestPrime;
 
 const FREE = 0;
 const FULL = 1;
@@ -274,7 +279,7 @@ class HashTable {
     }
 }
 
-export default HashTable;
+module.exports = HashTable;
 
 function chooseLowWaterMark(capacity, minLoad) {
     return (capacity * minLoad) | 0;

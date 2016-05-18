@@ -1,6 +1,6 @@
-import binarySearch from 'ml-binary-search';
+const binarySearch = require('ml-binary-search');
 
-export const largestPrime = 0x7fffffff;
+const largestPrime = 0x7fffffff;
 
 const primeNumbers = [
     //chunk #0
@@ -73,10 +73,13 @@ const primeNumbers = [
 
 primeNumbers.sort((a, b) => a - b);
 
-export function nextPrime(value) {
+function nextPrime(value) {
     let index = binarySearch(primeNumbers, value);
     if (index < 0) {
         index = -index - 1;
     }
     return primeNumbers[index];
 }
+
+exports.nextPrime = nextPrime;
+exports.largestPrime = largestPrime;
