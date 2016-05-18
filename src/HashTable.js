@@ -5,12 +5,12 @@ const FREE = 0;
 const FULL = 1;
 const REMOVED = 2;
 
+const defaultInitialCapacity = 277;
+const defaultMinLoadFactor = 0.2;
+const defaultMaxLoadFactor = 0.5;
+
 class HashTable {
-    constructor(options = {
-        initialCapacity: 277,
-        minLoadFactor: 0.2,
-        maxLoadFactor: 0.5
-    }) {
+    constructor(options = {}) {
         if (options instanceof HashTable) {
             this.table = options.table.slice();
             this.values = options.values.slice();
@@ -24,13 +24,13 @@ class HashTable {
             return;
         }
 
-        const initialCapacity = options.initialCapacity;
+        const initialCapacity = options.initialCapacity === undefined ? defaultInitialCapacity : options.initialCapacity;
         if (initialCapacity < 0) {
             throw new RangeError(`initial capacity must not be less than zero: ${initialCapacity}`);
         }
 
-        const minLoadFactor = options.minLoadFactor;
-        const maxLoadFactor = options.maxLoadFactor;
+        const minLoadFactor = options.minLoadFactor === undefined ? defaultMinLoadFactor : options.minLoadFactor;
+        const maxLoadFactor = options.maxLoadFactor === undefined ? defaultMaxLoadFactor : options.maxLoadFactor;
         if (minLoadFactor < 0 || minLoadFactor >= 1) {
             throw new RangeError(`invalid minLoadFactor: ${minLoadFactor}`);
         }
@@ -88,7 +88,7 @@ class HashTable {
         if (this.distinct > this.highWaterMark) {
             const newCapacity = chooseGrowCapacity(this.distinct + 1, this.minLoadFactor, this.maxLoadFactor);
             this.rehash(newCapacity);
-            return this.put(key, value);
+            return this.set(key, value);
         }
 
         this.table[i] = key;
