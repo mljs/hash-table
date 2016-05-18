@@ -10,9 +10,9 @@ const FREE = 0;
 const FULL = 1;
 const REMOVED = 2;
 
-const defaultInitialCapacity = 277;
-const defaultMinLoadFactor = 0.2;
-const defaultMaxLoadFactor = 0.5;
+const defaultInitialCapacity = 150;
+const defaultMinLoadFactor = 1 / 6;
+const defaultMaxLoadFactor = 2 / 3;
 
 class HashTable {
     constructor(options = {}) {
@@ -47,6 +47,10 @@ class HashTable {
         }
 
         let capacity = initialCapacity;
+        // User wants to put at least capacity elements. We need to choose the size based on the maxLoadFactor to
+        // avoid the need to rehash before this capacity is reached.
+        // actualCapacity * maxLoadFactor >= capacity
+        capacity = (capacity / maxLoadFactor) | 0;
         capacity = nextPrime(capacity);
         if (capacity === 0) capacity = 1;
 
