@@ -114,34 +114,35 @@ class HashTable {
         return true;
     }
     
-    remove(key) {
+    remove(key, noRehash) {
         const i = this.indexOfKey(key);
         if (i < 0) return false;
 
         this.state[i] = REMOVED;
         this.distinct--;
 
-        if (this.distinct < this.lowWaterMark) {
-            const newCapacity = chooseShrinkCapacity(this.distinct, this.minLoadFactor, this.maxLoadFactor);
-            this.rehash(newCapacity)
-        }
+        if (!noRehash) this.maybeShrinkCapacity();
 
         return true;
     }
 
-    delete(key) {
+    delete(key, noRehash) {
         const i = this.indexOfKey(key);
         if (i < 0) return false;
 
         this.state[i] = FREE;
         this.distinct--;
 
-        if (this.distinct < this.lowWaterMark) {
-            const newCapacity = chooseShrinkCapacity(this.distinct, this.minLoadFactor, this.maxLoadFactor);
-            this.rehash(newCapacity)
-        }
+        if (!noRehash) this.maybeShrinkCapacity();
 
         return true;
+    }
+
+    maybeShrinkCapacity() {
+        if (this.distinct < this.lowWaterMark) {
+            const newCapacity = chooseShrinkCapacity(this.distinct, this.minLoadFactor, this.maxLoadFactor);
+            this.rehash(newCapacity);
+        }
     }
 
     containsKey(key) {
