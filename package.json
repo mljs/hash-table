@@ -1,6 +1,6 @@
 {
   "name": "ml-hash-table",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Open addressing hash table",
   "main": "src/HashTable.js",
   "scripts": {
