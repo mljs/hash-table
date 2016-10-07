@@ -1,4 +1,5 @@
-const binarySearch = require('ml-binary-search');
+const binarySearch = require('binary-search');
+const sortAsc = require('num-sort').asc;
 
 const largestPrime = 0x7fffffff;
 
@@ -71,12 +72,12 @@ const primeNumbers = [
     60045577, 120091177, 240182359, 480364727, 960729461, 1921458943
 ];
 
-primeNumbers.sort((a, b) => a - b);
+primeNumbers.sort(sortAsc);
 
 function nextPrime(value) {
-    let index = binarySearch(primeNumbers, value);
+    let index = binarySearch(primeNumbers, value, sortAsc);
     if (index < 0) {
-        index = -index - 1;
+        index = ~index;
     }
     return primeNumbers[index];
 }
