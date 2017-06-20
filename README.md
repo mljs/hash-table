@@ -1,4 +1,5 @@
 # hash-table
+
 Open addressing hash table
 
 ## Literature
