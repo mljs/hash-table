@@ -1,3 +1,17 @@
+# [1.0.0](https://github.com/mljs/hash-table/compare/v0.2.1...v1.0.0) (2019-06-29)
+
+
+### chore
+
+* update dependencies and remove support for Node.js 6 ([394eb38](https://github.com/mljs/hash-table/commit/394eb38))
+
+
+### BREAKING CHANGES
+
+* Node.js 6 is no longer supported.
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/mljs/hash-table/compare/v0.2.0...v0.2.1) (2016-10-07)
 
